@@ -12,7 +12,9 @@ Public Class Form1
         VideoRender.Init(screen)
         VideoRender.Play("./Video.mp4")
 
-        Dim success = LiveWallpaperEngineManager.Show(VideoRender, screen)
+        If Not LiveWallpaperEngineManager.Show(VideoRender, screen) Then
+            MessageBox.Show("Failed to render wallpaper")
+        End If
     End Sub
 
     Private Sub BtnStop_Click(sender As Object, e As EventArgs) Handles btnStop.Click
